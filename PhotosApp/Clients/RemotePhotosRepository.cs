@@ -1,11 +1,4 @@
-﻿using AutoMapper;
-using Microsoft.Extensions.Options;
-using Microsoft.Net.Http.Headers;
-using Newtonsoft.Json;
-using PhotosApp.Clients.Exceptions;
-using PhotosApp.Clients.Models;
-using PhotosApp.Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
@@ -13,6 +6,13 @@ using System.Net.Mime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using AutoMapper;
+using Microsoft.Extensions.Options;
+using Microsoft.Net.Http.Headers;
+using Newtonsoft.Json;
+using PhotosApp.Clients.Exceptions;
+using PhotosApp.Clients.Models;
+using PhotosApp.Data;
 using MediaTypeHeaderValue = System.Net.Http.Headers.MediaTypeHeaderValue;
 
 namespace PhotosApp.Clients
