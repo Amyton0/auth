@@ -1,4 +1,6 @@
 ﻿@model EditPhotoModel
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
 @{
     ViewData["Title"] = "Изменить подпись";
 }
@@ -14,7 +16,10 @@
 
             <div class="form-group">
                 <div>
-                    <input type="submit" class="btn btn-primary" value="Изменить подпись"/>
+                    @if ((await AuthorizationService.AuthorizeAsync(User, "PolicyName")).Succeeded)
+                    {
+                        <input type="submit" class="btn btn-primary" value="Изменить подпись"/>
+                    }
                 </div>
             </div>
         </div>
