@@ -21,11 +21,13 @@ namespace PhotosApp.Services.Authorization
             var principal = await base.CreateAsync(user);
             var claimsIdentity = (ClaimsIdentity)principal.Identity;
             
-            if (user.Paid) claimsIdentity.AddClaims(new[]
+            if (user.Paid) 
             {
-                 new Claim("subscription", "paid")
-            });
-
+                claimsIdentity.AddClaims(new[]
+                {
+                    new Claim("subscription", "paid")
+                });
+            }
             return principal;
         }
     }

@@ -47,8 +47,7 @@ namespace PhotosApp.Controllers
             var model = new GetPhotoModel(photo);
             return View(model);
         }
-
-        [Authorize]
+        
         [HttpGet("photos/{id}")]
         [Authorize(Policy = "MustOwnPhoto")]
         public async Task<IActionResult> GetPhotoFile(Guid id)
@@ -65,8 +64,7 @@ namespace PhotosApp.Controllers
         {
             return View();
         }
-
-        [Authorize]
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Policy = "CanAddPhoto")]
@@ -134,8 +132,7 @@ namespace PhotosApp.Controllers
 
             return RedirectToAction("Index");
         }
-
-        [Authorize]
+        
         [HttpPost]
         [Authorize(Policy = "MustOwnPhoto")]
         public async Task<IActionResult> DeletePhoto(Guid id)
@@ -149,8 +146,7 @@ namespace PhotosApp.Controllers
 
             return RedirectToAction("Index");
         }
-
-        [Authorize]
+        
         private string GetOwnerId()
         {
             return User.FindFirstValue(ClaimTypes.NameIdentifier);
